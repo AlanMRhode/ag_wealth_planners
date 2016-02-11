@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<title> <%=@title%> | A.G. Wealth Planning</title>
+</head>
+<header>
+	<div id="header-bg-img">
+		<img src="images/philly_dark.jpg" alt="Philadelphia is the home of AG Wealth Planners">
+	</div>
+	<div id="title-container">
+		<p id="site-title">A.G. Wealth Planners</p>	
+		<p id="site-motto">multigenerational wealth creation</p>
+	</div>
+	<nav>
+		<ul>
+			<li><a href="/">home</a></li>
+			<li><a href="/about">about</a></li>
+			<li><a href="/services">services</a></li>
+			<li><a href="/contact">contact</a></li>
+		</ul>
+	</nav>
+</header>
+
+<%= yield %>
+
+<footer>
+	<div id="social-media-bar">
+		<ul>
+			<li><a href="#social-media-bar" class="social-button"><img src="images/linkedinlogo.svg" alt="Connect to AGW on Linked in"></a></li>
+			<li><a href="#social-media-bar"><img src="images/facebooklogo.svg" alt="Join our on Facebook group"></a></li>
+			<li><a href="#social-media-bar"><img src="images/twitterlogo.svg" alt="Follow AGW on Twitter"></a></li>
+			<li><a href="#social-media-bar"><img src="images/googlepluslogo.svg" alt="Follow AGW on Google Plus"></a></li></ul>
+		</div>
+		<div id="footer-info">
+			<section id="address" class="footer-flex">
+				<p>1234 Broad Street, Philadelphia, PA 19101</p>
+			</section>
+			<section id="copyright" class="footer-flex">
+				<p>&copy; 2015 AG Wealth Planning</p>
+			</section>
+		</div>
+	</footer>

@@ -1,0 +1,73 @@
+<article id="home-page">
+	<h1 class="centered larger">Experience the AG difference</h1>
+	<div id="carousel-wrapper" class="border">
+		<div id="carousel-description" class="border">
+			<div class="displayed-text">
+				<h1 class="centered">Growth</h1>
+				<h3 class="centered">Our common goal</h3>
+				<p>We start with a big pile of money, and then we turn it into an even bigger pile of money. Together.</p>
+			</div>
+			<div>
+				<h1 class="centered">Trust</h1>
+				<h3 class="centered">Our core value</h3>
+				<p>Your money, your dreams, and all of your deep, deep, dark secrets are safe with us.</p>
+			</div>
+			<div>
+				<h1 class="centered">Family</h1>
+				<h3 class="centered">Our key asset</h3>
+				<p>We relentlessly pursue the the multiplication of assets and let nothing get in our way. For your family.</p>
+			</div>
+		</div>
+		<div id="carousel-images" class="border">
+			<img class="displayed" src="images/growth.jpg" alt="Growth is our goal">
+			<img src="images/handshake.jpg" alt="Trust us with your secrets">
+			<img src="images/family3.jpg" alt="We perform for your family">
+		</div>
+	</div>
+	<div id='home-cards'>
+		<div class='home-card'>
+			<p>AGWP works for you</p>
+			<a href="/"><img src="images/protect.jpg"></a>
+		</div>
+		<div class='home-card'>
+			<p>Meet the team</p>
+			<a href="/about"><img src="images/performance.jpg"></a>
+		</div>	
+		<div class='home-card'>
+			<p>See what we do</p>
+			<a href="/services"><img src="images/process.jpg"></a>
+		</div>
+		<div class='home-card'>
+			<p>Start the conversation</p>
+			<a href="/contact"><img src="images/writing.jpg"></a>
+		</div>
+	</div>
+</article>
+
+<script>
+
+// carousel made with modified code from 
+// http://www.simonbattersby.com/blog/simple-jquery-image-crossfade/
+
+function rotateDescription(){
+	  var $displayedText = $('#carousel-description .displayed-text'); // select div with .displayed-text
+      var $nextText = ($displayedText.next().length > 0) ? $displayedText.next() : $('#carousel-description div:first'); // identify/select the next undisplayed div
+      $displayedText.animate({opacity: 0}, 1500).removeClass('displayed-text'); // fade out the displayed div with animate() and update class
+      $nextText.animate({opacity: 1}, 1500).addClass('displayed-text'); // fade in the next div with animate and update class
+    }
+
+function rotateImages(){
+      var $displayed = $('#carousel-images .displayed');
+      var $next = ($displayed.next().length > 0) ? $displayed.next() : $('#carousel-images img:first');
+      $next.css('z-index',2); // change next img z-index from 1 -> 2 (move it up) 
+      $displayed.fadeOut(1500,function(){// fadeOut the img on top pile 
+	  	$displayed.css('z-index',1).show().removeClass('displayed');// change z-index of top image from 3 -> 1 (put it at bottom of stack)
+      	$next.css('z-index',3).addClass('displayed'); // change next img z-index from 2 -> 3 (move it up the stack)    
+      	});
+    }
+
+$(document).ready(function(){
+	setInterval('rotateDescription()', 4000);
+	setInterval('rotateImages()', 4000);
+});
+</script>
